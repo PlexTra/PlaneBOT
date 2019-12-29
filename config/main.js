@@ -5,7 +5,8 @@ bot: {
            "owners": [  ],
            "botid": "BOT ID",
            "supporter":  [ ],
-           "prefix": "#"
+           "prefix": "#",
+           "premiumlobbyserverid": ""
 }
 
 }

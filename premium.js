@@ -45,7 +45,7 @@ if(result[0].move == 1) {
         guilds.push(g.id);
         })
         var index = guilds.indexOf(result[0].guild);
-        var index2 = guilds.indexOf("470064194948038659");
+        var index2 = guilds.indexOf(main_config.bot.premiumlobbyserverid);
 
         if (index > -1) {
             guilds.splice(index, 1);
@@ -58,7 +58,7 @@ if(result[0].move == 1) {
             sql.query(`UPDATE premium SET move = 0 WHERE WHERE botid = ${client.user.id}}`)
             result = sql.query(`SELECT * FROM premium WHERE botid = ${client.user.id}`);
             client.guilds.forEach(g => {
-                if(g.id == "470064194948038659") return;
+                if(g.id == main_config.bot.premiumlobbyserverid) return;
                 if(g.id == result[0].guild) return;
                 g.leave();
                 })
@@ -66,7 +66,7 @@ if(result[0].move == 1) {
     }
     } else {
 client.guilds.forEach(g => {
-if(g.id == "470064194948038659") return;
+if(g.id == main_config.bot.premiumlobbyserverid) return;
 if(g.id == result[0].guild) return;
 g.leave();
 })
