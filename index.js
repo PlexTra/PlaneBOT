@@ -9,7 +9,7 @@ moment = require('moment');
 countdown = require("countdown");   
 
 // الاضافات ==> 
-require("./bot.js")(client);
+require("./bot.js")(client, main_config);
 require("./functions/bank.js");
 require("./functions/bot.js")(client);
 

@@ -1,7 +1,7 @@
 var { exec } = require('child_process');
 premium_servers = [ ];
 
-module.exports = async (client) => {
+module.exports = async (client, config) => {
     
     loadMySQL = async ( ) => {
         sql = new mysql({
@@ -18,7 +18,7 @@ module.exports = async (client) => {
           });
         ssql.connect();
 setTimeout(function ( ) { 
-if(client.user.id == "563817330791022648") { 
+if(client.user.id == main_config.bot.botid) { 
         ssql.query(`SELECT * FROM premium`, function (error, results, fields) {
 
     for (let i = 0; i < results.length; i++) {
