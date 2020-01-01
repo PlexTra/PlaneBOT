@@ -1,8 +1,7 @@
 var { exec } = require('child_process');
 premium_servers = [ ];
 
-module.exports = async (client, config) => {
-    
+module.exports = async (client, config, chalk) => {
     loadMySQL = async ( ) => {
         sql = new mysql({
             host     : database_config.mysql.host,
@@ -42,7 +41,7 @@ exec(`pm2 start premium.js --name ${result[i].id} -- ${result[i].token}`)
 
         }
      }
-    load = async ( ) => {
+    load = async (  ) => {
         events = {
             "BanMember": "guildMemberBan",
             "RemoveBan": "guildBanRemove",
@@ -70,12 +69,11 @@ exec(`pm2 start premium.js --name ${result[i].id} -- ${result[i].token}`)
                 fs.readdir(`./events/${file}`, (err,files2) => {
     files2.forEach(f=> {
                     let eventFunction = require(`./events/${file}/${f}`);
-                    client.on(events[file], (...args) => eventFunction.run(client, ...args));
+                    client.on(events[file], (...args) => eventFunction.run(client, ...args, config, chalk));
     })
                 })
               })
         })
-
         // commands
         commands = { };
         help = { };

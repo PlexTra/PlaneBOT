@@ -6,6 +6,7 @@ mysql = require('sync-mysql');
 mysql2 = require('mysql'); 
 moment = require('moment');
 countdown = require("countdown");   
+chalk = require('chalk')
 
 // simple functions 
 var responsess = { };
@@ -22,15 +23,16 @@ reactions[guild][userid]['r'] = {
     'msgid': msgid
     }
 }
-// الاضافات ==> 
-require("./bot.js")(client);
-require("./functions/bot.js")(client);
-require("./functions/bank.js")(client);
 
 // الكونفج ==> 
 main_config = require("./config/main.js");
 database_config = require("./config/database.js");
 website_config = require("./config/website.js");
+
+// الاضافات ==> 
+require("./bot.js")(client, main_config, chalk);
+require("./functions/bot.js")(client);
+require("./functions/bank.js")(client);
 
 // الداتا بيس
 loadMySQL();

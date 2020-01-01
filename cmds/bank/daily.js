@@ -5,7 +5,7 @@ exports.run = async (client, message, args) => {
     
     
 exports.settings = {
-"name": "هدية",
+"name": "daily",
 "sub-names": [],
 "server": true,
 "owneronly": false,

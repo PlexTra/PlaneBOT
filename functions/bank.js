@@ -51,7 +51,6 @@ check = (guild, member) => {
       }
     }
       }    
-}
 addXP = (guild, member, xp) => {
         if(!users_data[member.id]) {
             check(guild, member);
@@ -71,9 +70,8 @@ addMoney = (guild, member, credits) => {
         if(!users_data[member.id]) {
             check(guild, member);
         } else { 
-    
-users_data[member.id].money += credits;
-        
+users_data[member.id].money += credits;    
     }
+}
 
 }

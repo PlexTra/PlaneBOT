@@ -7,22 +7,24 @@ mysql = require('sync-mysql');
 mysql2 = require('mysql');
 moment = require('moment');
 countdown = require("countdown");   
-
-// الاضافات ==> 
-require("./bot.js")(client, main_config);
-require("./functions/bank.js");
-require("./functions/bot.js")(client);
-
+chalk = require('chalk')
 // الكونفج ==> 
 main_config = require("./config/main.js");
 database_config = require("./config/database.js");
 website_config = require("./config/website.js");
 
+
+// الاضافات ==> 
+require("./bot.js")(client, main_config, chalk);
+require("./functions/bank.js");
+require("./functions/bot.js")(client);
+
+
 // الداتا بيس
 loadMySQL();
 
 // الفاكشنات ( تعاريف الايفنتات و الاوامر )
-load();
+load(main_config);
 lastinvites = { };
 
 
@@ -106,4 +108,6 @@ if(cmd.settings.server) {
     }
 })
 
+setTimeout( function ( ) { 
 client.login(main_config.bot.token_bot)
+}, 1500)

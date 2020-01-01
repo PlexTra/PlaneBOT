@@ -1,9 +1,6 @@
 
 exports.run = (client) => {
 setInterval( function  () { 
-if(client.user.id == "563817330791022648") { 
-    client.user.setPresence({ game: { name: `-help | ${client.guilds.size} servers` } })
-}
 var mutes = sql.query(`SELECT * FROM usersmute  WHERE muted = 1`);
 for (let i = 0; i < mutes.length; i++) {
 var nowdate = new Date();
