@@ -8,10 +8,11 @@ mysql2 = require('mysql');
 moment = require('moment');
 countdown = require("countdown");   
 chalk = require('chalk')
+
 // الكونفج ==> 
-main_config = require("./config/main.js");
-database_config = require("./config/database.js");
-website_config = require("./config/website.js");
+main_config = JSON.parse(fs.readFileSync('./config/main.json','utf8'));
+database_config = JSON.parse(fs.readFileSync('./config/database.json','utf8'));
+website_config = JSON.parse(fs.readFileSync('./config/website.json','utf8'));
 
 
 // الاضافات ==> 

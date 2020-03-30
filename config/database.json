@@ -1,16 +1,16 @@
-var data = { 
- mysql: { 
+{ 
+  "mysql": { 
     "host": "",
     "user": "",
     "password":  "",
     "database": "",
     "charset": ""
 },
- nosql: { 
+ "nosql": { 
 
 },
- json: { 
+ "json": { 
 
- }
 }
-module.exports = data;
+}
+

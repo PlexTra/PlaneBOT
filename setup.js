@@ -60,38 +60,41 @@ console.log(chalk.blue('- Starting on step 2 ( Edit config ) '))
 var fs = require('fs');
 
 var simple_config = { 
+    "bot": {
     "token_bot": "TOKEN BOT",
     "owners": [  ],
     "botid": "BOT ID",
     "supporter":  [ ],
     "prefix": "#",
     "premiumlobbyserverid": "",
-    "gamestatus": "[membercount] User Online!" // You can use [servercount] too!
+    "gamestatus": "[membercount] User Online!" 
+}
 }
 
-var c = require('./config/main.js');
+
+var c = JSON.parse(fs.readFileSync('./config/main.json','utf8'));
 rl.question(chalk.green('Please enter the bot token : \n'), (answer) => {
-    c.bot.token_bot = answer;
+    simple_config.bot.token_bot = answer;
     console.log(chalk.green(`Susscus added the token : ${answer}`));
     // Owner id 
     rl.question(chalk.green('Please enter the owner bot id : \n'), (answer2) => {
-        c.bot.owners.push(parseInt(answer2));
+        simple_config.bot.owners.push(parseInt(answer2));
         console.log(chalk.green(`Susscus added the owner : ${answer2}`));
         // bot id
         rl.question(chalk.green('Please enter the bot id : \n'), (answer3) => {
-            c.bot.botid = parseInt(answer3);
+            simple_config.bot.botid = parseInt(answer3);
             console.log(chalk.green(`Susscus added the id : ${answer3}`));
 
             // prefix
             rl.question(chalk.green('Please enter the bot prefix : \n'), (answer4) => {
-                c.bot.prefix = answer4;
+                simple_config.bot.prefix = answer4;
                 console.log(chalk.green(`Susscus added the prefix : ${answer4}`));
                 // Premium lobby
                 rl.question(chalk.green('Please enter the premium lobby you can add all premium bots in this guild : \n'), (answer5) => {
-                    c.bot.premiumlobbyserverid = parseInt(answer5);
+                    simple_config.bot.premiumlobbyserverid = parseInt(answer5);
                     console.log(chalk.green(`Susscus added the premium lobby : ${answer5}`));
-                    fs.writeFileSync('./config/main.js', c)
-                                })
+                    fs.writeFileSync('./config/main.json',simple_config);
+                })
             })
         })
     })
